@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^5.2.0",
+    "chokidar": "^3.5.3",
+    "connect-flash": "^0.1.1",
+    "connect-pg-simple": "^7.0.0",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "nodemon": "^2.0.19",
+    "nunjucks": "^3.2.3",
+    "pg": "^8.8.0"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "juego_trivia",
+  "description": "1. Clonar el proyecto    `git clone REPO_STARTERKIT`",
+  "version": "1.0.0",
+  "main": "secrets.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t3b1/TriviaGame_M8_P5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t3b1/TriviaGame_M8_P5/issues"
+  },
+  "homepage": "https://github.com/t3b1/TriviaGame_M8_P5#readme"
+}

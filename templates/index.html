@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import navbar %}
+
+{% block main %}
+{{ navbar('/', user) }}
+
+<div class="container fondo">
+  <h2 class="text-center mt-5">Hola {{ user.name }}</h2>
+    <div class="row mensaje" id="oculto" style="visibility: {{visibility}};">
+      <div class="col-12 div_mensaje">
+        <p> Eso estuvo genial {{jugada.name}}! tu puntaje es: {{jugada.score}}/3 ({{jugada.percentage}} %)</p>
+      </div>
+    </div>
+
+
+  <div class="row mt-5">
+    <div class="col-4 offset-4 div_jugar">
+      <!-- <div class="text-center"> -->
+        <a class="btn btn_play" href="/lets_play" ><span class="material-symbols-outlined">
+          play_arrow
+          </span></a>
+      <!-- </div> -->
+      <p class="play">Click en el boton para jugar</p>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-10 offset-1 tabla">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">nombre <span class="material-symbols-outlined">
+              person
+              </span></th>
+            <th scope="col">puntaje <span class="material-symbols-outlined">
+              star
+              </span></th>
+            <th scope="col">porcentaje <span class="material-symbols-outlined">
+              star_half
+              </span></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for jugada in jugadas  %}
+          <tr>
+            <td>{{jugada.name}}</td>
+            <td>{{jugada.score}}</td>
+            <td>{{jugada.percentage}} %</td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>  
+{% endblock %}

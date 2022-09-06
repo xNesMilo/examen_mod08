@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import navbar %}
+
+{% block main %}
+{{ navbar('/lets_play', user) }}
+<div class="container fondo">
+  <form class="form"action="/lets_play" method="post">
+    <div class="row">
+      <div class="col-10 offset-1 mensaje">
+        <img src="https://64.media.tumblr.com/19d9c43537c62bf3845edce13903f4da/a885014b9d8910a9-b2/s540x810/9d7ba65c229d860d2a87eee988da9c1656d2af4a.pnj" class="img-fluid" alt="...">
+        <p class="text-center">Elige una respuesta por cada pregunta y envia el test una vez respondido. <br> Buena suerte!</p>
+        <img src="https://64.media.tumblr.com/19d9c43537c62bf3845edce13903f4da/a885014b9d8910a9-b2/s540x810/9d7ba65c229d860d2a87eee988da9c1656d2af4a.pnj" class="img-fluid" alt="...">
+      </div>
+    </div>
+    <div class="row border-dark">
+      {% for pregunta in preguntas %}
+      <div class="col-10 offset-1">
+        <p>¿{{pregunta.pregunta}}?</p>
+        <div class="form-group mb-4">
+          {% set indice=loop.index %}
+          {% for respuesta in pregunta.respuestas%}
+              {% if (respuesta.text != null) and (respuesta.text !='') %}
+              <div class="form-check">
+                <input name="respuesta{{ indice }}"  class="form-check-input" type="radio" value="{{respuesta.value}}" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  {{respuesta.text}}
+                </label>
+              </div>
+              {%endif%}
+              {%endfor%}
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+    <button class="btn" type="submit">enviar</button>
+  </form>
+</div>
+{% endblock %}
